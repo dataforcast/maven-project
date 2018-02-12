@@ -22,8 +22,10 @@ pipeline{
             timeout(time:5, unit:'DAYS'){
                input message : 'Deployment Production to be Approved...'
             }
-         }
+
          build job : 'deployer-package-prod'
+
+         }
          post {
             success {
                echo 'Deploy to production Succeeded'
@@ -33,7 +35,6 @@ pipeline{
             }
          }
       }
-
    }
 }
 
